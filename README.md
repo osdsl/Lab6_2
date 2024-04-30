@@ -81,7 +81,7 @@ mvn -version
 
 ```
 mvnw clean package
-java -jar target/lab6-0.0.1-SNAPSHOT.jar
+java -jar target/lab5-0.0.1-SNAPSHOT.jar
 ```
 
 ### 3. Запуск WEB приложения
