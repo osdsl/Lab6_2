@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Регистрация</title>
+</head>
+<body>
+<h1>Registration page</h1>
+<form class="form" method="post" th:object="${userForm}" th:action="@{/registration}">
+    <input class="input" type="text" placeholder="Ваше имя" th:field="*{username}" name="username"> <br />
+    <input class="input" type="password"  placeholder="Пароль" th:field="*{password}" name="password"> <br />
+    <input class="input" type="password" placeholder="Пароль еще раз" th:field="*{passwordConfirm}" name="passwordConfirm"> <br />
+    <button class="btn" type="submit">Регистрация</button> <br />
+    <div th:if="${#fields.hasErrors('username')}" th:errors="*{username}">Error</div>
+    <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Error</div>
+</form>
+<div th:unless="${#lists.isEmpty(bindingResult)}">
+
+    <table>
+        <tbody>
+        <tr th:each="errorText : ${bindingResult}">
+            <td th:text="${errorText.getDefaultMessage()}"></td>  <br>
+        </tr>
+        </tbody>
+    </table>
+</div>
+<a href="/login">Уже есть аккаунт.</a>
+</body>
+</html>

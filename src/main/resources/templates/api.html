@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
+<head>
+    <meta charset="UTF-8">
+    <title>Main page</title>
+</head>
+<body>
+<div sec:authorize="isAuthenticated()">
+    Добро пожаловать, <span sec:authentication="name"></span>
+    <p sec:authorize="hasRole('ROLE_USER')">Вы вошли как пользователь</p>
+    <p sec:authorize="hasRole('ROLE_ADMIN')">А еще вы администратор. Властвуйте!</p>
+</div>
+<div sec:authorize="hasRole('ROLE_USER')">
+        <a href="/api/tv">Посмотреть телевизоры!</a>
+        <a href="/api/search">Поиск телевизора по ID</a>
+        <a href="/api/search/by/price">Поиск телевизора по цене</a>
+</div>
+<div sec:authorize="hasRole('ROLE_ADMIN')">
+    <a href="/api/admin/add">Добавить телевизор</a>
+    <a href="/api/admin/delete">Удалить телевизор</a>
+    <a href="/api/admin/edit">Редактировать телевизор</a>
+</div>
+<form th:action="@{/logout}" method="post">
+    <input type="submit" value="Выйти"></input>
+</form>
+<div>
+
+</div>
+</body>
+</html>

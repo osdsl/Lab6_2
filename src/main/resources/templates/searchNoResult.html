@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Ничего не найдено!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body th:object="${tvId}" th:action="@{/search}" >
+<p th:text="'No element with id ' + ${tvId}"></p>
+<a href="/api">Вернутсья назад.</a>
+</body>
+</html>

@@ -1,0 +1,11 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Ничего не найдено!</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body  th:action="@{/api/admin/delete}" th:object="${tvId}">
+<p th:text="'No element with id ' + ${tvId}"></p>
+<a href="/api">Вернутьcя назад.</a>
+</body>
+</html>

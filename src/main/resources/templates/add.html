@@ -1,0 +1,28 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Форма добавления новой/несуществующей позиции</h1>
+<form  action="#" th:action="@{/api/admin/add}"   th:object="${tvEntity}" method="post">
+
+    <p>Name: <input type="text" th:field="*{name}" required/></p>
+    <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Error</div>
+    <p>Brand: <input type="text" th:field="*{brand}" required/></p>
+    <div th:if="${#fields.hasErrors('brand')}" th:errors="*{brand}">Error</div>
+    <p>Type: <input type="text" th:field="*{type}" required/></p>
+    <div th:if="${#fields.hasErrors('type')}" th:errors="*{type}">Error</div>
+    <p>Size: <input type="number" th:field="*{size}" required/></p>
+    <div th:if="${#fields.hasErrors('size')}" th:errors="*{size}">Error</div>
+    <p>Price: <input type="number" th:field="*{price}" required/></p>
+    <div th:if="${#fields.hasErrors('price')}" th:errors="*{price}">Error</div>
+    <p>Quantity: <input type="number" th:field="*{quantity}" required/></p>
+    <div th:if="${#fields.hasErrors('quantity')}" th:errors="*{quantity}">Error</div>
+
+    <p><input type="submit" value="Подтвердить" /> <input type="reset" value="Обновить"  /></p>
+
+</form>
+</body>
+</html>

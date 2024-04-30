@@ -1,0 +1,15 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Поиск позиции</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Введите ID для поиска</h1>
+<form action="#" th:action="@{/api/search}" th:object="${tvEntity}"  method="post">
+    <p>Id: <input type="number" th:field="*{id}" /></p>
+    <div th:if="${#fields.hasErrors('id')}" th:errors="*{id}">Error</div>
+    <p><input type="submit" value="Подтвердить"></p>
+</form>
+</body>
+</html>

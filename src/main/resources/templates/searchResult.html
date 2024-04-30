@@ -1,0 +1,36 @@
+<!DOCTYPE HTML>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+
+<div class="tvlist" >
+    <h1>Вот результат поиска!</h1>
+    <table>
+        <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Type</th>
+        <th>Brand</th>
+        <th>Size</th>
+        <th>Price</th>
+        <th>Quantity</th>
+        </thead>
+        <tr th:object="${tvEntity}">
+            <tbody>
+            <td th:text="${tvEntity.getId()}"></td>
+            <td th:text="${tvEntity.getName()}"></td>
+            <td th:text="${tvEntity.getType()}"></td>
+            <td th:text="${tvEntity.getBrand()}"></td>
+            <td th:text="${tvEntity.getSize()}"></td>
+            <td th:text="${tvEntity.getPrice()}"></td>
+            <td th:text="${tvEntity.getQuantity()}"></td>
+            </tbody>
+        </tr>
+    </table>
+    <a href="/api">Вернуться на главную</a>
+</div>
+</body>
+</html>
